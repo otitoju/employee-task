@@ -4,10 +4,10 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-import { store, persistor } from './src/store';
-import { ThemeProvider, useTheme } from './src/contexts/ThemeContext';
-import { AppNavigator } from './src/navigation/AppNavigator';
-import { Loading } from './src/components';
+import { store, persistor } from './store';
+import { ThemeProvider, useTheme } from './contexts/ThemeContext';
+import { AppNavigator } from './navigation/AppNavigator';
+import { Loading } from './components';
 
 const AppContent: React.FC = () => {
   const { isDark } = useTheme();
@@ -20,7 +20,7 @@ const AppContent: React.FC = () => {
   );
 };
 
-const App: React.FC = () => {
+export const App: React.FC = () => {
   return (
     <Provider store={store}>
       <PersistGate loading={<Loading text="Loading..." overlay />} persistor={persistor}>
@@ -31,5 +31,3 @@ const App: React.FC = () => {
     </Provider>
   );
 };
-
-export default App;
