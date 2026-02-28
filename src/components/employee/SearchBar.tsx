@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
+import { Search, X } from 'lucide-react-native';
 import { Input } from '../common';
 import { useTheme } from '../../contexts/ThemeContext';
 
@@ -21,9 +22,10 @@ export const SearchBar: React.FC<SearchBarProps> = ({
   const { colors } = useTheme();
 
   const SearchIcon = () => (
-    <View style={{ width: 20, height: 20, alignItems: 'center', justifyContent: 'center' }}>
-      <Text style={{ color: colors.textSecondary, fontSize: 16 }}>🔍</Text>
-    </View>
+    <Search 
+      size={20} 
+      color={colors.textSecondary}
+    />
   );
 
   const ClearIcon = () => (
@@ -38,7 +40,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         justifyContent: 'center',
       }}
     >
-      <Text style={{ color: colors.surface, fontSize: 12, fontWeight: 'bold' }}>✕</Text>
+      <X size={12} color={colors.surface} />
     </TouchableOpacity>
   );
 

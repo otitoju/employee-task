@@ -1,20 +1,13 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { View, ActivityIndicator } from 'react-native';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-import { store, persistor } from './store';
-import { ThemeProvider, useTheme } from './contexts/ThemeContext';
-import { AppNavigator } from './navigation/AppNavigator';
-
-// Simple loading component that doesn't use theme context
-const SimpleLoading: React.FC = () => (
-  <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#fff' }}>
-    <ActivityIndicator size="large" color="#3b82f6" />
-  </View>
-);
+import { store, persistor } from './src/store';
+import { ThemeProvider, useTheme } from './src/contexts/ThemeContext';
+import { AppNavigator } from './src/navigation/AppNavigator';
+import { Loading } from './src/components';
 
 const AppContent: React.FC = () => {
   const { isDark } = useTheme();
@@ -27,10 +20,10 @@ const AppContent: React.FC = () => {
   );
 };
 
-export const App: React.FC = () => {
+const App: React.FC = () => {
   return (
     <Provider store={store}>
-      <PersistGate loading={<SimpleLoading />} persistor={persistor}>
+      <PersistGate loading={<Loading text="Loading..." overlay />} persistor={persistor}>
         <ThemeProvider>
           <AppContent />
         </ThemeProvider>
@@ -38,3 +31,5 @@ export const App: React.FC = () => {
     </Provider>
   );
 };
+
+export default App;

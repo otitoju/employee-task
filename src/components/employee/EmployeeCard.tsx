@@ -1,12 +1,9 @@
 import React, { memo } from 'react';
-import { View, Text, ViewStyle, TextStyle } from 'react-native';
-import Animated from 'react-native-reanimated';
+import { View, Text, ViewStyle, TextStyle, StyleSheet } from 'react-native';
 import { Employee } from '../../types';
 import { useTheme } from '../../contexts/ThemeContext';
-import { Avatar } from '../common';
-import { AnimatedCard } from '../common/AnimatedCard';
+import { Avatar, Card } from '../common';
 import { capitalizeWords } from '../../utils';
-import { useSlideUp } from '../../hooks/useAnimations';
 
 interface EmployeeCardProps {
   employee: Employee;
@@ -51,11 +48,9 @@ export const EmployeeCard: React.FC<EmployeeCardProps> = memo(({
   };
 
   return (
-    <AnimatedCard
+    <Card
       onPress={() => onPress(employee)}
-      style={[{ marginBottom: 12 }, style]}
-      animationType="slideUp"
-      delay={index * 50}
+      style={StyleSheet.flatten([{ marginBottom: 12 }, style])}
       testID={testID}
     >
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -88,6 +83,6 @@ export const EmployeeCard: React.FC<EmployeeCardProps> = memo(({
           </Text>
         </View>
       </View>
-    </AnimatedCard>
+    </Card>
   );
 });

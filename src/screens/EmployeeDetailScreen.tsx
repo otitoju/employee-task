@@ -12,6 +12,7 @@ import {
 import { useRoute, useNavigation, RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { ChevronLeft } from 'lucide-react-native';
 
 import { useTheme } from '../contexts/ThemeContext';
 import { RootStackParamList } from '../types';
@@ -129,7 +130,7 @@ export const EmployeeDetailScreen: React.FC = () => {
   };
 
   const BackIcon = () => (
-    <Text style={{ color: colors.primary, fontSize: 18 }}>←</Text>
+    <ChevronLeft size={24} color={colors.primary} />
   );
 
   const InfoRow: React.FC<{ label: string; value: string }> = ({ label, value }) => (

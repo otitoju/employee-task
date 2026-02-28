@@ -1,5 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, Text, Animated, ViewStyle } from 'react-native';
+import { Sun, Moon } from 'lucide-react-native';
 import { useTheme } from '../../contexts/ThemeContext';
 
 interface ThemeToggleProps {
@@ -39,9 +40,11 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
       activeOpacity={0.7}
       testID={testID}
     >
-      <Text style={[sizeStyles[size]]}>
-        {isDark ? '☀️' : '🌙'}
-      </Text>
+      {isDark ? (
+        <Sun size={sizeStyles[size].fontSize} color={colors.text} />
+      ) : (
+        <Moon size={sizeStyles[size].fontSize} color={colors.text} />
+      )}
     </TouchableOpacity>
   );
 };

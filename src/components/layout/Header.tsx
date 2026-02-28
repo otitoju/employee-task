@@ -27,7 +27,7 @@ export const Header: React.FC<HeaderProps> = ({
 
   const headerStyle: ViewStyle = {
     paddingTop: insets.top,
-    paddingHorizontal: 16,
+    // paddingHorizontal: 16,
     paddingBottom: 12,
     backgroundColor: colors.surface,
     borderBottomWidth: 1,
