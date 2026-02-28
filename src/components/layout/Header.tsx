@@ -26,11 +26,11 @@ export const Header: React.FC<HeaderProps> = ({
   const insets = useSafeAreaInsets();
 
   const headerStyle: ViewStyle = {
-    paddingTop: insets.top,
-    // paddingHorizontal: 16,
+    // paddingTop: insets.top,
+    paddingHorizontal: 16,
     paddingBottom: 12,
-    backgroundColor: colors.surface,
-    borderBottomWidth: 1,
+    // backgroundColor: colors.surface,
+    // borderBottomWidth: 1,
     borderBottomColor: colors.border,
     flexDirection: 'row',
     alignItems: 'center',
